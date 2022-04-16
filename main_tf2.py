@@ -47,7 +47,7 @@ def main(args):
     if args.precision == "mixed_float16":
         print("Using mixed precision training.")
         optimizer = tf.keras.mixed_precision.LossScaleOptimizer(optimizer)
-
+    
     trained_model = training.train(
         training_dataset=training_dataset,
         validation_dataset=validation_dataset,

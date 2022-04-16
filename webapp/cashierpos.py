@@ -31,7 +31,6 @@ print("Finished nutrition info...")
 ITEMS = file_reader.read_items_file(file_path="data/upc_corpus.csv")
 print("Finished retrieving barcodes...")
 
-
 def prediction(image: np.array,
                image_dims: tuple = (512, 512),
                labels: list = None):
@@ -157,6 +156,7 @@ def website():
     st.markdown(original_title, unsafe_allow_html=True)
     col1, col2, col3 = st.columns([2,1,1])
     with col1:
+        st.image("data/logo.png")
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Camera Stream</h1>", 
             unsafe_allow_html=True)
@@ -173,15 +173,16 @@ def website():
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Product List</h1>", 
             unsafe_allow_html=True)
-        st.markdown(
-            '<style background-color:green; </style>', 
-            unsafe_allow_html=True)
+
+            
+        output = 'broccoli'
+        st.markdown('This is a ' + output)
     with col3:
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
             unsafe_allow_html=True)
     public_url = ngrok.connect(port='80')
-    print(f"The public URL is: {public_url}")
+    print("The public URL is: {public_url}")
 
 if __name__ == '__main__':
     website()

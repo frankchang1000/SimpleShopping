@@ -37,7 +37,7 @@ def parse_image(image_file: str,
     image = tf.image.decode_image(image)
     image = tf.image.resize(image, image_dims)
     image = tf.image.convert_image_dtype(
-        images=image, 
+        image=image, 
         dtype=tf.float32)
     image = tf.expand_dims(image, 0)
     original_shape = (image.shape[0], image.shape[0])
