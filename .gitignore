@@ -1,5 +1,7 @@
+# Simple shopping ignores
 data/dataset
 data/fat_secret.key
+data/simpleshopping-model
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

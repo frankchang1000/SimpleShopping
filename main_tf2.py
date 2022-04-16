@@ -16,6 +16,7 @@ import tensorflow as tf
 
 from src import dataset
 from src.training import training_utils, training
+from src.models import efficientnet_mod as model
 
 
 def main(args):
@@ -34,7 +35,8 @@ def main(args):
     efficientnet = model.get_model(
         model_name=args.model_name,
         num_classes=len(label_list),
-        input_shape=args.image_dims)
+        input_shape=args.image_dims,
+        fine_tune=args.fine_tune)
     
     loss_func = tf.keras.losses.CategoricalCrossentropy( 
         reduction=tf.losses.Reduction.NONE)
@@ -120,6 +122,11 @@ if __name__ == "__main__":
         type=str,
         default="mixed_float16",
         help="The precision to use.")
+    parser.add_argument(
+        "--fine-tune",
+        type=bool,
+        default=False,
+        help="Whether or not to use finetuning.")
     parser.add_argument(
         "--epochs",
         type=int,
