@@ -20,6 +20,7 @@ from src.training import training_utils
 from . import barcode, recipes_foods, file_reader
 
 
+print("Loading models...")
 MODEL = tf.keras.models.load_model("data/simpleshopping-model")
 print("Finished model loading...")
 LABELS = training_utils.read_files("data/labels.txt")
@@ -109,9 +110,10 @@ def run_algorithm(button: bytes,
     input_image = read_image(button)
     print(input_image.shape)
     if barcode.scan_barcode(
-        tf.squeeze(
-            tf.image.rgb_to_grayscale(np.array(input_image)),
-            axis=-1),
+        np.array(
+            tf.squeeze(
+                tf.image.rgb_to_grayscale(np.array(input_image)),
+                axis=-1)),
         debug=True) != None:
         product_scanned = barcode.find_product(
             barcode.scan_barcode(input_image), 
