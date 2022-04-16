@@ -1,7 +1,0 @@
-tensorflow==2.7.0
-numpy==1.22.3
-albumentations==1.1.0
-pyzbar==0.1.9
-fatsecret==0.4.0 # API calls for nutritional info
-rauth==0.7.3 # For fatsecret API
-tqdm==4.64.0
