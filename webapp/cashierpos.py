@@ -34,7 +34,7 @@ print("Finished retrieving barcodes...")
 
 def prediction(image: np.array,
                image_dims: tuple = (512, 512),
-               labels: list = None):
+               labels: list = LABELS):
     """Predicts the image.
     Params:
         image: np.array
