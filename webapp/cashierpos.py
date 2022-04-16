@@ -53,6 +53,7 @@ def prediction(image: np.array,
         dtype=tf.float32)
     image = tf.expand_dims(image, 0)
     label_index, probs = inference.run_inference(image, MODEL)
+    print("Prediction label index: ", label_index)
     class_name = labels[label_index]
     return class_name, label_index, probs
 
@@ -105,14 +106,21 @@ def run_algorithm(button: bytes,
     Returns:
         user_inputs: dict
     """
+    print("input image")
     input_image = read_image(button)
     print(input_image.shape)
-    if barcode.scan_barcode(input_image) != None:
+    if barcode.scan_barcode(
+        tf.squeeze(
+            tf.image.rgb_to_grayscale(np.array(input_image)),
+            axis=-1),
+        debug=True) != None:
         product_scanned = barcode.find_product(
             barcode.scan_barcode(input_image), 
             ITEMS)
+        print(product_scanned)
         nutritional_info = NUTRITION.nutritional_info(
             product_scanned)
+        print(nutritional_info)
         input_items.append(product_scanned)
         input_item_nutritional_info.append(nutritional_info)
         recipes = recipe_search(input_items)
@@ -122,6 +130,7 @@ def run_algorithm(button: bytes,
         user_inputs["recipes"] = recipes
     else:
         preds, _, _ = prediction(input_image)
+        print(preds)
         input_items.append(preds)
         recipes = recipe_search(input_items)
         nutritional_info = NUTRITION.nutritional_info(
@@ -132,6 +141,7 @@ def run_algorithm(button: bytes,
             "Item Name": input_items,
             "Nutritional info": input_item_nutritional_info}
         user_inputs["possible_recipes"] = recipes
+    print(user_inputs)
     return user_inputs
     
 
