@@ -1,3 +1,14 @@
+# SimpleShopping 2022
+# -*- coding: utf-8 -*- 
+#----------------------------------------------------------------------------
+# Created By  : Thomas Chia (IdeaKing)
+# Created Date: 16/04/2020 
+# version = 1.0.0
+# license: Creative Commons Attribution-NonCommercial-NoDerivs (CC-BY-NC-ND)
+# ---------------------------------------------------------------------------
+"""Creates the modified EfficiendNet-BX architecture."""
+# ---------------------------------------------------------------------------
+
 import tensorflow as tf
 
 from typing import Tuple
