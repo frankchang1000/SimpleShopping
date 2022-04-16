@@ -15,7 +15,7 @@ from typing import Tuple
 
 
 def get_model(model_name: str = "efficientnet_b4",
-              input_shape: Tuple[int, int] = (512, 512),
+              input_shape: Tuple[int, int] = (256, 256),
               num_classes: int = 20,
               weights: str = "imagenet",
               include_top: bool = False,

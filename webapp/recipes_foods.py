@@ -88,13 +88,3 @@ class NutritionInfo:
         for item in items:
             foods.append(self.nutritional_info(item))
         return foods
-
-if __name__ == "__main__":
-    fs = NutritionInfo(
-        consumer_key=file_reader.read_keys()["consumer_key"],
-        consumer_secret=file_reader.read_keys()["consumer_secret"])
-    items = ["chicken", "beef", "potato"]
-    recipes = fs.find_recipes(items)
-    print(recipes)
-    foods = fs.find_foods(items)
-    print(foods)
