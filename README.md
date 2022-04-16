@@ -1,2 +1,4 @@
 # SimpleShopping
-Project for HackTJ 9.0
+
+## What is SimpleShopping?
+
