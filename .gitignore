@@ -1,5 +1,5 @@
 data/dataset
-data/*.key
+data/fat_secret.key
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
