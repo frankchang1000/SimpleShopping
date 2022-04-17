@@ -177,7 +177,7 @@ def website():
         }
     </style>
     """
-    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+    #st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     
     col1, col2, col3 = st.columns([1.3 ,0.385,0.9])
 
@@ -207,7 +207,7 @@ def website():
                 input_item_nutritional_info)
     with col2:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: black;'>Product List</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: white;'>Product List</h1>", 
             unsafe_allow_html=True)
         output = user_inputs['items']['item_name']
         print(user_inputs)
@@ -217,7 +217,7 @@ def website():
         st.markdown('Nutritional Info: ' + str(item_nutritional))
     with col3:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: black;'>Recipes</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
             unsafe_allow_html=True)
         table_values_recipe = f"""
             <table>
