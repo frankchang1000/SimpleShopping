@@ -15,7 +15,7 @@ import argparse
 import tensorflow as tf
 
 from src import dataset
-from src.training_utils import read_files
+from src.training.training_utils import read_files
 
 
 def main(args):
