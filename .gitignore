@@ -5,6 +5,7 @@ data/simpleshopping-model
 *.ipynb
 training_dir/*
 data/images
+data/test_images
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
