@@ -22,7 +22,7 @@ Compared to previous methods, SimpleShopping is 10% more accurate than state of 
 
 ### Dataset
 
-We used the [VegFru](https://openaccess.thecvf.com/content_ICCV_2017/papers/Hou_VegFru_A_Domain-Specific_ICCV_2017_paper.pdf) dataset. Containing over 80000 images of vegetables and fruits.
+We used the [VegFru](https://openaccess.thecvf.com/content_ICCV_2017/papers/Hou_VegFru_A_Domain-Specific_ICCV_2017_paper.pdf) dataset which contains over 80000 images of vegetables and fruits.
 
 <p align="center">
   <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-dataset.png", width="450"/>
@@ -37,6 +37,10 @@ EfficientNet is a SOTA model developed by Google in 2020. For more information, 
 ## Github Copilot: Assisting the Open Source Community
 
 We utilized Github copilot: a platform that enables efficient coding. Copilot helps lint and write code with a complex JPT model developed by OpenAI. It is currently in development beta, and we thank Github and OpenAI for the opportunity to test their new product.
+
+### Clean GitHub
+
+Our [GitHub](https://github.com/frankchang1000/SimpleShopping/blob/main/README.md) was cleanly created and with accurate PEP8 formatting. The code is ready for use with its easy to read API and well documented components.
 
 ## Installation
 
