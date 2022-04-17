@@ -161,37 +161,36 @@ def website():
     #remove top banner
     hide_streamlit_style = """
     <style>
-    #MainMenu {visibility: hidden;}
-    #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
-    footer {visibility: hidden;}
-    .css-vl8c1e {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    height: 0rem;
-    background: linear-gradient(rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0.5) 75%, transparent);
-    backdrop-filter: blur(3px);
-    z-index: 1000020;
-    display: block;
-}
+        #MainMenu {visibility: hidden;}
+        #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+        footer {visibility: hidden;}
+        .css-vl8c1e {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            height: 0rem;
+            background: linear-gradient(rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0.5) 75%, transparent);
+            backdrop-filter: blur(3px);
+            z-index: 1000020;
+            display: block;
+        }
     </style>
-
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     
-    col1, col2, col3 = st.columns([1.9,1,1])
+    col1, col2, col3 = st.columns([1.3 ,0.385,0.9])
 
     user_inputs = {
         "items": {"item_name": [''],
                   "item_quantity": None,
                   "nutritional_info": ['']},
-        "possible_recipes": {"recipe_names": [''],
-                             "recipe_description": [''],
+        "possible_recipes": [{"recipe_name": '',
+                             "recipe_description": '',
                              "calories_per_serving": 0.0,
                              "fat_per_serving": 0.0,
                              "protein_per_serving": 0.0,
-                             "carbohydrate_per_serving": 0.0}}
+                             "carbohydrate_per_serving": 0.0}]}
     with col1:
         st.image("data/logo.png")
         st.markdown(
@@ -214,20 +213,70 @@ def website():
         print(user_inputs)
         item_nutritional = user_inputs['items']['nutritional_info']
         
-        st.markdown('Predicted Item: ' + str(output))
+        st.markdown('Predicted Item: ' + str(output)[2:-2])
         st.markdown('Nutritional Info: ' + str(item_nutritional))
     with col3:
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: black;'>Recipes</h1>", 
             unsafe_allow_html=True)
-        print("possible recipes", user_inputs['possible_recipes'])
-
-        #recipe_nutritional = user_inputs['possible_recipes']['nutritional_info']
-        st.markdown('Possible Recipes: ')
-        for recipe in user_inputs['possible_recipes']:
-            st.markdown(recipe)
-        #st.markdown('Nutritional Info: ' + str(recipe_nutritional))
-
+        table_values_recipe = f"""
+            <table>
+                <tr>
+                    <th>Recipe Name</th>
+                    <th>Recipe Description</th>
+                    <th>Calories Per Serving</th>
+                    <th>Fat Per Serving</th>
+                    <th>Protein Per Serving</th>
+                    <th>Carbs Per Serving</th>
+                </tr>
+                <tr>
+                    <th> {user_inputs['possible_recipes'][0]['recipe_name']} </th>
+                    <th> {user_inputs['possible_recipes'][0]['recipe_description']} </th>
+                    <th> {user_inputs['possible_recipes'][0]['calories_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][0]['fat_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][0]['protein_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][0]['carbohydrate_per_serving']} </th>
+                </tr>
+                <tr>
+                    <th> {user_inputs['possible_recipes'][1]['recipe_name']} </th>
+                    <th> {user_inputs['possible_recipes'][1]['recipe_description']} </th>
+                    <th> {user_inputs['possible_recipes'][1]['calories_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][1]['fat_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][1]['protein_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][1]['carbohydrate_per_serving']} </th>
+                </tr>
+                <tr> 
+                    <th> {user_inputs['possible_recipes'][2]['recipe_name']} </th>
+                    <th> {user_inputs['possible_recipes'][2]['recipe_description']} </th>
+                    <th> {user_inputs['possible_recipes'][2]['calories_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][2]['fat_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][2]['protein_per_serving']} </th>
+                    <th> {user_inputs['possible_recipes'][2]['carbohydrate_per_serving']} </th>
+                </tr>"""
+        st.markdown(table_values_recipe, unsafe_allow_html=True)
+        st.markdown("</table>", unsafe_allow_html=True)
+        
+        # Formet the table
+        st.markdown(
+            hide_streamlit_style = """
+                <style>
+                    #MainMenu {visibility: hidden;}
+                    #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+                    footer {visibility: hidden;}
+                    .css-vl8c1e {
+                        position: fixed;
+                        top: 0px;
+                        left: 0px;
+                        right: 0px;
+                        height: 0rem;
+                        background: linear-gradient(rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0.5) 75%, transparent);
+                        backdrop-filter: blur(3px);
+                        z-index: 1000020;
+                        display: block;
+                    }
+                </style>
+                """,
+            unsafe_allow_html=True)
 
     public_url = ngrok.connect(port='80')
     print("The public URL is: {public_url}")
