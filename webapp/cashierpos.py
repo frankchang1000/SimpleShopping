@@ -124,7 +124,7 @@ def run_algorithm(button: bytes,
         print(nutritional_info)
         input_items.append(product_scanned)
         input_item_nutritional_info.append(nutritional_info)
-        recipes = recipe_search(input_items)
+        recipes = NUTRITION.find_recipes(input_items)
         user_inputs["items"] = {
             "item_name": input_items,
             "nutritional_info": input_item_nutritional_info}
@@ -133,7 +133,7 @@ def run_algorithm(button: bytes,
         preds, _, _ = prediction(input_image)
         print(preds)
         input_items.append(preds)
-        recipes = recipe_search(input_items)
+        recipes = NUTRITION.find_recipes(input_items)
         nutritional_info = NUTRITION.nutritional_info(
             item=preds)
         input_item_nutritional_info.append(
