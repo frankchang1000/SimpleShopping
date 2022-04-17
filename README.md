@@ -9,7 +9,7 @@ Grocery shopping made convenient.
 ## What is SimpleShopping?
 
 <p align="center">
-  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-functions.png"/>
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-functions.png", width=450/>
 </p>
 
 ## A Novel AI Implementation
@@ -25,8 +25,14 @@ Compared to previous methods, SimpleShopping is 10% more accurate than state of 
 We used the [VegFru](https://openaccess.thecvf.com/content_ICCV_2017/papers/Hou_VegFru_A_Domain-Specific_ICCV_2017_paper.pdf) dataset. Containing over 80000 images of vegetables and fruits.
 
 <p align="center">
-  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-dataset.png", width="400"/>
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-dataset.png", width="450"/>
 </p>
+
+## Model Architecture
+
+A modified EffcientNet Convolutional Neural Netwokrk (CNN) model was used to make inferences.
+
+EfficientNet is a SOTA model developed by Google in 2020. For more information, please refer to [EfficientNet](https://arxiv.org/abs/1905.11946).
 
 ## Github Copilot: Assisting the Open Source Community
 
@@ -68,6 +74,14 @@ To finetune training or to run training:
 ```python
 python main_tf2.py 
 ```
+
+## Refernces
+
+[1] Tan, M., & Le, Q. (2019, May). Efficientnet: Rethinking model scaling for convolutional neural networks. In International conference on machine learning (pp. 6105-6114). PMLR.
+
+[2] Hou, S., Feng, Y., & Wang, Z. (2017). Vegfru: A domain-specific dataset for fine-grained visual categorization. In Proceedings of the IEEE International Conference on Computer Vision (pp. 541-549).
+
+[3] Pham, H., Dai, Z., Xie, Q., & Le, Q. V. (2021). Meta pseudo labels. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 11557-11568).
 
 ## License
 
