@@ -42,6 +42,16 @@ We utilized Github copilot: a platform that enables efficient coding. Copilot he
 
 Our [GitHub](https://github.com/frankchang1000/SimpleShopping/blob/main/README.md) was cleanly created and with accurate PEP8 formatting. The code is ready for use with its easy to read API and well documented components.
 
+## APIs Used
+
+To create simple shopping, we utilized three core APIs: Tensorflow, FatSecret, and Streamlit. We utilized Tensorflow to create our neural network models and to process data. We employed mixed precision training, which increased performance while also reducing computational power, and we used JIT compilation for our models.
+
+FatSecret is a powerful API used by many large - and small - companies around the world, notably including Samsung, Amazon, and Fitbit. We used the FatSecret API to access and and find nutrition info, recipes, and other important information for our application.
+
+### Issues with API and Development
+
+Throughout the hackathon, numerous issues arose from incompatibility between the APIs used (Tensorflow, OpenCV, ...) however, by implementing a common medium of array transfers - Numpy - we were able to resolve the issues. Furthermore, we faced numerous issues with the frontend API: Streamlit, but we were able to resolves those issues using a pseudo-HTML based formatting.
+
 ## Installation
 
 ```python
