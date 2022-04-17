@@ -6,6 +6,10 @@
 
 ## What is SimpleShopping?
 
+<p align="center">
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-functions.png">
+</p>
+
 ## Installation
 
 ```python
