@@ -186,12 +186,12 @@ def website():
         "items": {"item_name": [''],
                   "item_quantity": None,
                   "item_description": ['']},
-        "possible_recipes": {"recipe_names": None,
-                             "recipe_description": None,
-                             "calories_per_serving": None,
-                             "fat_per_serving": None,
-                             "protein_per_serving": None,
-                             "carbohydrate_per_serving": None}}
+        "possible_recipes": {"recipe_names": [''],
+                             "recipe_description": [''],
+                             "calories_per_serving": 0.0,
+                             "fat_per_serving": 0.0,
+                             "protein_per_serving": 0.0,
+                             "carbohydrate_per_serving": 0.0}}
     with col1:
         st.image("data/logo.png")
         st.markdown(
@@ -211,7 +211,7 @@ def website():
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Product List</h1>", 
             unsafe_allow_html=True)
         output = user_inputs['items']['item_name']
-        st.markdown('This is a ' + str(output))
+        st.markdown('Predicted Item: ' + str(output))
     with col3:
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
