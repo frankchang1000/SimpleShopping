@@ -180,7 +180,7 @@ def website():
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
     
-    col1, col2, col3 = st.columns([2,1,1])
+    col1, col2, col3 = st.columns([1.9,1,1])
 
     user_inputs = {
         "items": {"item_name": [''],
@@ -195,7 +195,7 @@ def website():
     with col1:
         st.image("data/logo.png")
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Camera Stream</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: white;'>Camera Stream</h1>", 
             unsafe_allow_html=True)
         button = col1.camera_input("")
         input_items = []
@@ -208,14 +208,21 @@ def website():
                 input_item_nutritional_info)
     with col2:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Product List</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: white;'>Product List</h1>", 
             unsafe_allow_html=True)
         output = user_inputs['items']['item_name']
+        item_nutritional = user_inputs['items']['item_name']['nutritional_info']
         st.markdown('Predicted Item: ' + str(output))
+        st.markdown('Nutritional Info: ' + str(item_nutritional))
     with col3:
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
             unsafe_allow_html=True)
+        recipe = user_inputs['possible_recipes']['recipe_name']
+        recipe_nutritional = user_inputs['possible_recipes']['recipe_name']['nutritional_info']
+        st.markdown('Possible Recipes: ' + str(recipe))
+        st.markdown('Nutritional Info: ' + str(recipe_nutritional))
+
 
     public_url = ngrok.connect(port='80')
     print("The public URL is: {public_url}")
