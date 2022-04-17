@@ -211,7 +211,7 @@ def website():
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Product List</h1>", 
             unsafe_allow_html=True)
         output = user_inputs['items']['item_name']
-        st.markdown('This is a ' + output)
+        st.markdown('This is a ' + str(output))
     with col3:
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
