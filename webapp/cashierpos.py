@@ -183,7 +183,7 @@ def website():
     col1, col2, col3 = st.columns([2,1,1])
 
     user_inputs = {
-        "items": {"item_name": '',
+        "items": {"item_name": [''],
                   "item_quantity": None,
                   "item_description": ''},
         "possible_recipes": {"recipe_names": None,
