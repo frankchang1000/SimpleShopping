@@ -1,6 +1,9 @@
 tensorflow==2.7.0
 numpy==1.22.3
 albumentations==1.1.0
+urllib3==1.26.7
+uvicorn==0.12.2
+fastapi==0.67.0
 zbar
 pyzbar==0.1.9
 fatsecret==0.4.0 # API calls for nutritional info
