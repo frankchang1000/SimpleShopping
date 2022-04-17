@@ -207,7 +207,7 @@ def website():
                 input_item_nutritional_info)
     with col2:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: white;'>Product List</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: black;'>Product List</h1>", 
             unsafe_allow_html=True)
         output = user_inputs['items']['item_name']
         print(user_inputs)
@@ -217,48 +217,60 @@ def website():
         st.markdown('Nutritional Info: ' + str(item_nutritional))
     with col3:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: black;'>Recipes</h1>", 
             unsafe_allow_html=True)
-        table_values_recipe = f"""
-            <table>
-                <tr>
-                    <th>Recipe Name</th>
-                    <th>Recipe Description</th>
-                    <th>Calories Per Serving</th>
-                    <th>Fat Per Serving</th>
-                    <th>Protein Per Serving</th>
-                    <th>Carbs Per Serving</th>
-                </tr>
-                <tr>
-                    <th> {user_inputs['possible_recipes'][0]['recipe_name']} </th>
-                    <th> {user_inputs['possible_recipes'][0]['recipe_description']} </th>
-                    <th> {user_inputs['possible_recipes'][0]['calories_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][0]['fat_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][0]['protein_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][0]['carbohydrate_per_serving']} </th>
-                </tr>
-                <tr>
-                    <th> {user_inputs['possible_recipes'][1]['recipe_name']} </th>
-                    <th> {user_inputs['possible_recipes'][1]['recipe_description']} </th>
-                    <th> {user_inputs['possible_recipes'][1]['calories_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][1]['fat_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][1]['protein_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][1]['carbohydrate_per_serving']} </th>
-                </tr>
-                <tr> 
-                    <th> {user_inputs['possible_recipes'][2]['recipe_name']} </th>
-                    <th> {user_inputs['possible_recipes'][2]['recipe_description']} </th>
-                    <th> {user_inputs['possible_recipes'][2]['calories_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][2]['fat_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][2]['protein_per_serving']} </th>
-                    <th> {user_inputs['possible_recipes'][2]['carbohydrate_per_serving']} </th>
-                </tr>"""
+        try:
+            table_values_recipe = f"""
+                <table>
+                    <tr>
+                        <th>Recipe Name</th>
+                        <th>Recipe Description</th>
+                        <th>Calories Per Serving</th>
+                        <th>Fat Per Serving</th>
+                        <th>Protein Per Serving</th>
+                        <th>Carbs Per Serving</th>
+                    </tr>
+                    <tr>
+                        <th> {user_inputs['possible_recipes'][0]['recipe_name']} </th>
+                        <th> {user_inputs['possible_recipes'][0]['recipe_description']} </th>
+                        <th> {user_inputs['possible_recipes'][0]['calories_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][0]['fat_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][0]['protein_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][0]['carbohydrate_per_serving']} </th>
+                    </tr>
+                    <tr>
+                        <th> {user_inputs['possible_recipes'][1]['recipe_name']} </th>
+                        <th> {user_inputs['possible_recipes'][1]['recipe_description']} </th>
+                        <th> {user_inputs['possible_recipes'][1]['calories_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][1]['fat_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][1]['protein_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][1]['carbohydrate_per_serving']} </th>
+                    </tr>
+                    <tr> 
+                        <th> {user_inputs['possible_recipes'][2]['recipe_name']} </th>
+                        <th> {user_inputs['possible_recipes'][2]['recipe_description']} </th>
+                        <th> {user_inputs['possible_recipes'][2]['calories_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][2]['fat_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][2]['protein_per_serving']} </th>
+                        <th> {user_inputs['possible_recipes'][2]['carbohydrate_per_serving']} </th>
+                    </tr>"""
+        except:
+            table_values_recipe = f"""
+                <table>
+                    <tr>
+                        <th>Recipe Name</th>
+                        <th>Recipe Description</th>
+                        <th>Calories Per Serving</th>
+                        <th>Fat Per Serving</th>
+                        <th>Protein Per Serving</th>
+                        <th>Carbs Per Serving</th>
+                    </tr>"""
         st.markdown(table_values_recipe, unsafe_allow_html=True)
         st.markdown("</table>", unsafe_allow_html=True)
         
         # Formet the table
         st.markdown(
-            hide_streamlit_style = """
+                 """
                 <style>
                     #MainMenu {visibility: hidden;}
                     #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
