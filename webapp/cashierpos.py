@@ -154,8 +154,19 @@ def website():
                                   #  Item Description: None}
                    "possible_recipes": None } # List of dicts of recipes.
     st.set_page_config(layout="wide")
-    original_title = '<p style="font-family:monospace; color:Black; font-size: 50px;">SimpleShopping</p>'
-    st.markdown(original_title, unsafe_allow_html=True)
+
+
+    page_bg_img = '''
+    <style>
+    body {
+    background-image: url("https://ibb.co/L1MkKwp");
+    background-size: cover;
+    }
+    </style>
+    '''
+
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
     col1, col2, col3 = st.columns([2,1,1])
     with col1:
         st.image("data/logo.png")
@@ -175,8 +186,6 @@ def website():
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Product List</h1>", 
             unsafe_allow_html=True)
-
-            
         output = 'broccoli'
         st.markdown('This is a ' + output)
     with col3:
