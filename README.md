@@ -3,7 +3,7 @@
 Grocery shopping made convenient.
 
 <p align="center">
-  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/logo.png", width="200"/>
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/logo.png", width="250"/>
 </p>
 
 ## What is SimpleShopping?
@@ -12,9 +12,25 @@ Grocery shopping made convenient.
   <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-functions.png"/>
 </p>
 
-## Novel AI Implementations
+## A Novel AI Implementation
 
-SimpleShopping uses the novel semi-supervised training method: Advanced Meta Pseudo Labels. 
+### Overview
+
+SimpleShopping uses the novel semi-supervised training method: Advanced Meta Pseudo Labels. Advanced Meta Pseudo Labels uses AI to create new efficient AI models.
+
+Compared to previous methods, SimpleShopping is 10% more accurate than state of the art attempts.
+
+### Dataset
+
+We used the [VegFru](https://openaccess.thecvf.com/content_ICCV_2017/papers/Hou_VegFru_A_Domain-Specific_ICCV_2017_paper.pdf) dataset. Containing over 80000 images of vegetables and fruits.
+
+<p align="center">
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-dataset.png", width="400"/>
+</p>
+
+## Github Copilot: Assisting the Open Source Community
+
+We utilized Github copilot: a platform that enables efficient coding. Copilot helps lint and write code with a complex JPT model developed by OpenAI. It is currently in development beta, and we thank Github and OpenAI for the opportunity to test their new product.
 
 ## Installation
 
@@ -38,3 +54,34 @@ Then place your OAuth1 token into a fat_secret.key file in the data folder.
     "consumer_secret": "abunchofrandomchars"
 }
 ```
+
+## Running the GUI Application
+
+To run the application, run the following command in the project directory:
+
+```python
+streamlit run main.py
+```
+
+To finetune training or to run training:
+
+```python
+python main_tf2.py 
+```
+
+## License
+
+Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License (CC BY-NC-ND 4.0)
+
+
+    Under the following terms:
+
+    Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+
+    NonCommercial — You may not use the material for commercial purposes.
+
+    NoDerivatives — If you remix, transform, or build upon the material, you may not distribute the modified material.
+
+    No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+    SimpleShopping Team 2022: Frank Chang (FrankChang1000), Thomas Chia (IdeaKing), Alton Lin (alton.d.lin), and Jason Yoo (youajason)
