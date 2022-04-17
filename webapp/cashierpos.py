@@ -185,7 +185,7 @@ def website():
     user_inputs = {
         "items": {"item_name": [''],
                   "item_quantity": None,
-                  "item_description": ['']},
+                  "nutritional_info": ['']},
         "possible_recipes": {"recipe_names": [''],
                              "recipe_description": [''],
                              "calories_per_serving": 0.0,
@@ -208,20 +208,25 @@ def website():
                 input_item_nutritional_info)
     with col2:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: white;'>Product List</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: black;'>Product List</h1>", 
             unsafe_allow_html=True)
         output = user_inputs['items']['item_name']
-        item_nutritional = user_inputs['items']['item_name']['nutritional_info']
+        print(user_inputs)
+        item_nutritional = user_inputs['items']['nutritional_info']
+        
         st.markdown('Predicted Item: ' + str(output))
         st.markdown('Nutritional Info: ' + str(item_nutritional))
     with col3:
         st.markdown(
-            "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
+            "<h1 style='text-align: center; font-size: 30px; color: black;'>Recipes</h1>", 
             unsafe_allow_html=True)
-        recipe = user_inputs['possible_recipes']['recipe_name']
-        recipe_nutritional = user_inputs['possible_recipes']['recipe_name']['nutritional_info']
-        st.markdown('Possible Recipes: ' + str(recipe))
-        st.markdown('Nutritional Info: ' + str(recipe_nutritional))
+        print("possible recipes", user_inputs['possible_recipes'])
+
+        #recipe_nutritional = user_inputs['possible_recipes']['nutritional_info']
+        st.markdown('Possible Recipes: ')
+        for recipe in user_inputs['possible_recipes']:
+            st.markdown(recipe)
+        #st.markdown('Nutritional Info: ' + str(recipe_nutritional))
 
 
     public_url = ngrok.connect(port='80')

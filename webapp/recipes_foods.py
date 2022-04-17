@@ -19,7 +19,7 @@ class NutritionInfo:
     def __init__(self, 
                  consumer_key: str,
                  consumer_secret: str,
-                 max_recipes: int = 10):
+                 max_recipes: int = 3):
         self.fs = fatsecret.Fatsecret(consumer_key, consumer_secret)
         self.max_recipes = max_recipes
 
@@ -37,6 +37,8 @@ class NutritionInfo:
         """
         recipes = []
         search_query = " ".join(items)
+        search_query = search_query.replace("_", " ")
+        print(search_query)
         results = self.fs.recipes_search(
             search_expression=search_query)
         if self.max_recipes == 0:
@@ -67,7 +69,9 @@ class NutritionInfo:
         """
         results = self.fs.foods_search(
             search_expression=item)
+        print(results)
         food = results[0]
+        
         return {
             "food_name": food["food_name"],
             "food_description": food["food_description"]}
