@@ -2,6 +2,9 @@
 data/dataset
 data/fat_secret.key
 data/simpleshopping-model
+*.ipynb
+training_dir/*
+data/images
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
