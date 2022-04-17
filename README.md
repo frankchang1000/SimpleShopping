@@ -1,5 +1,9 @@
 # SimpleShopping
 
+<p align="center">
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/logo.png">
+</p>
+
 ## What is SimpleShopping?
 
 ## Installation
