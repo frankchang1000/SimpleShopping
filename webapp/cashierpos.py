@@ -126,8 +126,8 @@ def run_algorithm(button: bytes,
         input_item_nutritional_info.append(nutritional_info)
         recipes = recipe_search(input_items)
         user_inputs["items"] = {
-            "Item Name": input_items,
-            "Nutrition info": input_item_nutritional_info}
+            "item_name": input_items,
+            "nutritional_info": input_item_nutritional_info}
         user_inputs["recipes"] = recipes
     else:
         preds, _, _ = prediction(input_image)
@@ -139,8 +139,8 @@ def run_algorithm(button: bytes,
         input_item_nutritional_info.append(
             nutritional_info)
         user_inputs["items"] = {
-            "Item Name": input_items,
-            "Nutritional info": input_item_nutritional_info}
+            "item_name": input_items,
+            "nutritional_info": input_item_nutritional_info}
         user_inputs["possible_recipes"] = recipes
     print(user_inputs)
     return user_inputs
@@ -155,19 +155,43 @@ def website():
                    "possible_recipes": None } # List of dicts of recipes.
     st.set_page_config(layout="wide")
 
+    #set up background colors
+    set_bg_hack_url()
 
-    page_bg_img = '''
+    #remove top banner
+    hide_streamlit_style = """
     <style>
-    body {
-    background-image: url("https://ibb.co/L1MkKwp");
-    background-size: cover;
-    }
+    #MainMenu {visibility: hidden;}
+    #root > div:nth-child(1) > div > div > div > div > section > div {padding-top: 0rem;}
+    footer {visibility: hidden;}
+    .css-vl8c1e {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 0rem;
+    background: linear-gradient(rgb(255, 255, 255) 25%, rgba(255, 255, 255, 0.5) 75%, transparent);
+    backdrop-filter: blur(3px);
+    z-index: 1000020;
+    display: block;
+}
     </style>
-    '''
 
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-
+    """
+    st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+    
     col1, col2, col3 = st.columns([2,1,1])
+
+    user_inputs = {
+        "items": {"item_name": '',
+                  "item_quantity": None,
+                  "item_description": ''},
+        "possible_recipes": {"recipe_names": None,
+                             "recipe_description": None,
+                             "calories_per_serving": None,
+                             "fat_per_serving": None,
+                             "protein_per_serving": None,
+                             "carbohydrate_per_serving": None}}
     with col1:
         st.image("data/logo.png")
         st.markdown(
@@ -186,14 +210,37 @@ def website():
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Product List</h1>", 
             unsafe_allow_html=True)
-        output = 'broccoli'
+        output = user_inputs['items']['item_name']
         st.markdown('This is a ' + output)
     with col3:
         st.markdown(
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
             unsafe_allow_html=True)
+
     public_url = ngrok.connect(port='80')
     print("The public URL is: {public_url}")
+
+
+def set_bg_hack_url():
+    '''
+    A function to unpack an image from url and set as bg.
+    Returns
+    -------
+    The background.
+    '''
+        
+    st.markdown(
+         f"""
+         <style>
+         .stApp {{
+             background: url("https://i.ibb.co/V3VT5Mw/Untitled-drawing.png");
+             background-size: cover
+         }}
+         </style>
+         """,
+         unsafe_allow_html=True
+     )
+
 
 if __name__ == '__main__':
     website()

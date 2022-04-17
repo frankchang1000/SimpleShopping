@@ -126,8 +126,8 @@ def run_algorithm(button: bytes,
         input_item_nutritional_info.append(nutritional_info)
         recipes = recipe_search(input_items)
         user_inputs["items"] = {
-            "Item Name": input_items,
-            "Nutrition info": input_item_nutritional_info}
+            "item_name": input_items,
+            "nutrition_info": input_item_nutritional_info}
         user_inputs["recipes"] = recipes
     else:
         preds, _, _ = prediction(input_image)
@@ -139,8 +139,8 @@ def run_algorithm(button: bytes,
         input_item_nutritional_info.append(
             nutritional_info)
         user_inputs["items"] = {
-            "Item Name": input_items,
-            "Nutritional info": input_item_nutritional_info}
+            "item_name": input_items,
+            "nutrition_info": input_item_nutritional_info}
         user_inputs["possible_recipes"] = recipes
     print(user_inputs)
     return user_inputs
@@ -182,7 +182,7 @@ def website():
             "<h1 style='text-align: center; font-size: 30px; color: #a1ae25;'>Recipes</h1>", 
             unsafe_allow_html=True)
     public_url = ngrok.connect(port='80')
-    print(f"The public URL is: {public_url}")
+    print("The public URL is: {public_url}")
 
 if __name__ == '__main__':
     website()
