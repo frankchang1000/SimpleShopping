@@ -185,7 +185,7 @@ def website():
     user_inputs = {
         "items": {"item_name": [''],
                   "item_quantity": None,
-                  "item_description": ''},
+                  "item_description": ['']},
         "possible_recipes": {"recipe_names": None,
                              "recipe_description": None,
                              "calories_per_serving": None,
