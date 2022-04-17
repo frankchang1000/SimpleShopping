@@ -1,16 +1,20 @@
 # SimpleShopping
 
-## Grocery shopping made convenient
+Grocery shopping made convenient.
 
 <p align="center">
-  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/logo.png">
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/logo.png", width="200"/>
 </p>
 
 ## What is SimpleShopping?
 
 <p align="center">
-  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-functions.png">
+  <img src="https://github.com/frankchang1000/SimpleShopping/blob/main/data/SimpleShopping-functions.png"/>
 </p>
+
+## Novel AI Implementations
+
+SimpleShopping uses the novel semi-supervised training method: Advanced Meta Pseudo Labels. 
 
 ## Installation
 
@@ -26,7 +30,7 @@ Use 7zip to unzip the tensorflow model file. It is located in data/simpleshoppin
 
 To access the nutrition data, you MUST have a developer Fatsecret API key. For more information about FatSecret API, please refer to [here](https://platform.fatsecret.com/api/Default.aspx).
 
-Then place your OAuth1 token into a fat_scret.key file in the data folder.
+Then place your OAuth1 token into a fat_secret.key file in the data folder.
 
 ```
 {
